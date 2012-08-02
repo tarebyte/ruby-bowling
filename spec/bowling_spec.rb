@@ -85,7 +85,13 @@ describe Bowling, "#score" do
     bowling.hit(3)  # fifth frame part 2
 
     # strike + strike + strike + strike + fifth frame
-    bowling.score.should eq((10 + 10 + 10) + (10 + 10 + 10) + (10 + 10 + 4) + (10 + 4 + 3) + (4 + 3))
+    bowling.score.should eq(
+                            (10 + 10 + 10) +
+                            (10 + 10 + 10) +
+                            (10 + 10 + 4) +
+                            (10 + 4 + 3) +
+                            (4 + 3)
+                            )
   end
 
   it "should correctly score a perfect game" do
