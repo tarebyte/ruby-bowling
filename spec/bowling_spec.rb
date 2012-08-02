@@ -2,21 +2,25 @@
 require_relative '../lib/ruby-bowling/bowling'
 
 describe Bowling, "#score" do
+
   it "returns 0 for all gutter game" do
     bowling = Bowling.new
     20.times { bowling.hit(0) }
     bowling.score.should eq(0)
   end
+
   it "returns 1 for one pin hit" do
     bowling = Bowling.new
     bowling.hit(1)
     bowling.score.should eq(1)
   end
+
   it "returns 50 for fifty pins hit" do
     bowling = Bowling.new
     10.times { bowling.hit(5) }
     bowling.score.should eq(70)
   end
+
   it "returns 70 for 10 4/3 pins hit" do
     bowling = Bowling.new
     10.times do
@@ -25,6 +29,7 @@ describe Bowling, "#score" do
     end
     bowling.score.should eq(70)
   end
+  
   it "returns 80 for 10 6/2 pins hit" do
     bowling = Bowling.new
     10.times do
@@ -64,13 +69,13 @@ describe Bowling, "#score" do
     bowling.score.should eq(10 + (2 + 5) + 2 + 5)
   end
 
-    it "should correctly score a strike followed by spare" do
+  it "should correctly score a strike followed by spare" do
     bowling = Bowling.new
     bowling.hit(10) # first frame
     bowling.hit(5)  # second frame
     bowling.hit(5)
     bowling.hit(4)  # third frame
-
+    
     # strike + next ball + next ball + spare + next ball + third frame
     bowling.score.should eq(10 + (5 + 5) + 10 + (4) + 4)
   end
@@ -83,7 +88,7 @@ describe Bowling, "#score" do
     bowling.hit(10) # fourth frame
     bowling.hit(4)  # fifth frame part 1
     bowling.hit(3)  # fifth frame part 2
-
+    
     # strike + strike + strike + strike + fifth frame
     bowling.score.should eq(
                             (10 + 10 + 10) +
@@ -93,7 +98,7 @@ describe Bowling, "#score" do
                             (4 + 3)
                             )
   end
-
+  
   it "should correctly score a perfect game" do
     bowling = Bowling.new
     bowling.hit(10)
