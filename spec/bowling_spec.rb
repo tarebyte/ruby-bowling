@@ -1,5 +1,5 @@
 # bowling_spec.rb
-require_relative 'bowling'
+require_relative '../lib/ruby-bowling/bowling'
 
 describe Bowling, "#score" do
   it "returns 0 for all gutter game" do
@@ -87,4 +87,24 @@ describe Bowling, "#score" do
     # strike + strike + strike + strike + fifth frame
     bowling.score.should eq((10 + 10 + 10) + (10 + 10 + 10) + (10 + 10 + 4) + (10 + 4 + 3) + (4 + 3))
   end
+
+  it "should correctly score a perfect game" do
+    bowling = Bowling.new
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    bowling.hit(10)
+    # bonus balls
+    bowling.hit(10)
+    bowling.hit(10)
+
+    bowling.score.should eq(300)
+  end
+  
 end

@@ -1,4 +1,4 @@
-require_relative 'frame'
+require_relative '../lib/ruby-bowling/frame'
 
 describe Frame, "#total" do
 

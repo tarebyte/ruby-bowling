@@ -1,6 +1,5 @@
 # bowling.rb
 require_relative 'frame'
-require 'ap'
 
 class Bowling
 
